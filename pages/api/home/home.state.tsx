@@ -1,7 +1,7 @@
 import { Conversation, Message } from '@/types/chat';
 import { ErrorMessage } from '@/types/error';
 import { FolderInterface } from '@/types/folder';
-import { OpenAIModel, OpenAIModelID } from '@/types/openai';
+import { OpenAIModel, OpenAIModelID, OpenAIModels } from '@/types/openai';
 import { PluginKey } from '@/types/plugin';
 import { Prompt } from '@/types/prompt';
 
@@ -29,14 +29,15 @@ export interface HomeInitialState {
   serverSidePluginKeysSet: boolean;
 }
 
+// 默认秘钥
 export const initialState: HomeInitialState = {
-  apiKey: '',
+  apiKey: 'n63kO7oYJSxxgFhibYBOPPWgW0Q8CfXH9LWY17pBvco',
   loading: false,
   pluginKeys: [],
   lightMode: 'dark',
   messageIsStreaming: false,
   modelError: null,
-  models: [],
+  models: [OpenAIModels['gpt-4']],
   folders: [],
   conversations: [],
   selectedConversation: undefined,
@@ -48,7 +49,7 @@ export const initialState: HomeInitialState = {
   currentFolder: undefined,
   messageError: false,
   searchTerm: '',
-  defaultModelId: undefined,
-  serverSideApiKeyIsSet: false,
+  defaultModelId: OpenAIModelID.GPT_4,
+  serverSideApiKeyIsSet: true,
   serverSidePluginKeysSet: false,
 };
